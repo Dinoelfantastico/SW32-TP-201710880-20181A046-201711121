@@ -6,8 +6,8 @@ Trabajo Parcial
 
 ### Integrantes
 
-Dino Iván Pérez Vásquez
-Luis  Eduardo Prado Valer
+* Dino Iván Pérez Vásquez
+* Luis Eduardo Prado Valer
 
 ### Introduccion
 
