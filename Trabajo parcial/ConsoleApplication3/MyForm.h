@@ -23,7 +23,8 @@ namespace ConsoleApplication3 {
 
 		Bitmap^ bmpBloque = gcnew Bitmap("Imagenes\\bloque.png");
 		Bitmap^ bmpBase = gcnew Bitmap("Imagenes\\base_1.png");
-		Bitmap^ bmpEspinas = gcnew Bitmap("Imagenes\\espina.png");
+		Bitmap^ bmpfuego = gcnew Bitmap("Imagenes\\bolafuego.png");
+		Bitmap^ Enemigos = gcnew Bitmap("Imagenes\\Banette.png");
 	private: System::Windows::Forms::Timer^  timer1;
 			 Bitmap^ bmpJugador = gcnew Bitmap("Imagenes\\Picachu.png");
 			 //Bitmap ^ Enemigo = gcnew Bitmap("Imagenes\\canon.png");
@@ -98,11 +99,12 @@ namespace ConsoleApplication3 {
 
 		void Iniciar_Juego() {
 			this->Text = L"VIDAS : " + objControlador->Vidas().ToString();
-			objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpEspinas, bmpBase);
+			objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpfuego, bmpBase);
 			objControlador->DibujarJugador(buffer->Graphics, bmpJugador);
 			//objControlador->DibujaEnemigos(buffer->Graphics , Enemigo , bala );
 			objControlador->DibujaCompuerta(buffer->Graphics, Compuerta);
 			objControlador->ColisionEnemigoJugador();
+			objControlador->DibujaEnemigos(buffer->Graphics,Enemigos,bmpfuego);
 			//objControlador->InteraccionJyEsc();
 			objControlador->PierdeJuego();
 			objControlador->GanaJuego();
