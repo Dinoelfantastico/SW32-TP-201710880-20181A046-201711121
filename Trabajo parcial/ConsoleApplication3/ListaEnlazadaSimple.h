@@ -1,5 +1,6 @@
 #pragma once
 
+#include <functional>
 template <typename T >
 
 class ListaEnlazadaSimple {
@@ -7,7 +8,6 @@ class ListaEnlazadaSimple {
 	struct nodo {
 		T * elem;
 		nodo * sig;
-
 		nodo(T *elem = nullptr, nodo* sig = nullptr):elem(elem),sig(sig){}
 	};
 

@@ -8,13 +8,13 @@
 #include "ListaEnlazadaSimple.h"
 #include "ListaEnlazadaCircularDoble.h"
 
-//#include "CFuego.h"
 class Controladora
 {
+
 private:
 
 	//Listas a usar
-	
+
 	ListaDobEnlazadaCircular<CNivel> *ColeccionNiveles;
 
 	//OBJETOS
