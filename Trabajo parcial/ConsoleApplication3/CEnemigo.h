@@ -14,6 +14,7 @@ private:
 
 	int ancho;
 	int largo;
+	int fila, columna;
 
 	//1(arriba) , 2(abajo) , 3(izquierda) , 4(derecha)
 	int dirDisparo;
@@ -24,6 +25,7 @@ public:
 	
 		x = px;
 		y = py;
+		fila = columna = 0;
 		ancho = anc ;
 		largo = alt;
 		dirDisparo = dirDisp;
@@ -36,8 +38,14 @@ public:
 	int Gety() { return y; }
 
 	void DibujaEnemigo(Graphics^ g, Bitmap^ enemigo) {
-
-		g->DrawImage(enemigo, x, y, ancho, largo);
+		largo = enemigo->Height/1;
+		ancho = enemigo->Width / 6;
+		Rectangle molde = Rectangle(columna * ancho, fila * largo, ancho, largo);
+		g->DrawImage(enemigo, x, y,molde,GraphicsUnit::Pixel);
+		columna++;
+		if (columna == 6) {
+			columna = 0;
+		}
 
 	}
 	void EnemigoDispara(Graphics^ g, Bitmap^ bala) {

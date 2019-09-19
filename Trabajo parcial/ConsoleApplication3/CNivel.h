@@ -13,7 +13,9 @@ private:
 	CEcenario * Ecenario;
 	CCompuerta * Compuerta;
 	ListaEnlazadaSimple<CEnemigo> *ColeccionEnemigos;
-
+	CEnemigo *Enemigo;
+	CEnemigo *Enemigo2;
+	CEnemigo *Enemigo3;
 public:
 
 	CNivel(int n) { 
@@ -26,11 +28,11 @@ public:
 		if (n == 1) { 
 
 			Ecenario->GeneraMapa1();
-			CEnemigo*Enemigo = new CEnemigo(400, 510, 90, 60, 1);
-			CEnemigo*Enemigo2 = new CEnemigo(600, 30, 90, 60, 2);
-			CEnemigo*Enemigo3 = new CEnemigo(200, 30, 60, 60, 2);
+			Enemigo = new CEnemigo(400, 510, 90, 60, 1);
+			Enemigo2 = new CEnemigo(600, 30, 90, 60, 2);
+			Enemigo3 = new CEnemigo(200, 30, 60, 60, 2);
 			Compuerta = new CCompuerta(780,480);
-
+			
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo);
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo2);
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo3);
@@ -76,13 +78,13 @@ public:
 	//Dibujar enemigos de determinado nivel
 
 	void DibujaEnemigosDeNivel(Graphics ^ g, Bitmap^ enemigo , Bitmap^ bala) {
-
+		
 		for (int i = 0; i < ColeccionEnemigos->tamaño(); i++)
 		{
-
+			
 			(ColeccionEnemigos->ObtenerElemento(i))->DibujaEnemigo(g,enemigo);
 			(ColeccionEnemigos->ObtenerElemento(i))->EnemigoDispara(g, bala);
-
+			
 		}
 
 	}

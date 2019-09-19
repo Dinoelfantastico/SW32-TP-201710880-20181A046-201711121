@@ -50,6 +50,10 @@ public:
 
 		x = x + dx;
 		y = y + dy;
+		indiceX++;
+		if (indiceX == 4) {
+			indiceX = 0;
+		}
 
 	}
 	void Mover(Graphics^ g, Bitmap^ jugador, int **matriz)

@@ -23,12 +23,13 @@ namespace ConsoleApplication3 {
 
 		Bitmap^ bmpBloque = gcnew Bitmap("Imagenes\\bloque.png");
 		Bitmap^ bmpBase = gcnew Bitmap("Imagenes\\base_1.png");
-		Bitmap^ bmpEspinas = gcnew Bitmap("Imagenes\\espina.png");
+		Bitmap^ bmpfuego = gcnew Bitmap("Imagenes\\bolafuego.png");
+		Bitmap^ Enemigos = gcnew Bitmap("Imagenes\\enemigosfuego1.png");
 	private: System::Windows::Forms::Timer^  timer1;
 			 Bitmap^ bmpJugador = gcnew Bitmap("Imagenes\\Picachu.png");
 			 //Bitmap ^ Enemigo = gcnew Bitmap("Imagenes\\canon.png");
 			// Bitmap ^ bala = gcnew Bitmap("Imagenes\\fuego.png");
-			 Bitmap ^ Compuerta = gcnew Bitmap("Imagenes\\portal.jpg");
+			 Bitmap ^ Compuerta = gcnew Bitmap("Imagenes\\nave.png");
 
 	public:
 		MyForm(void)
@@ -98,11 +99,12 @@ namespace ConsoleApplication3 {
 
 		void Iniciar_Juego() {
 			this->Text = L"VIDAS : " + objControlador->Vidas().ToString();
-			objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpEspinas, bmpBase);
+			objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpfuego, bmpBase);
 			objControlador->DibujarJugador(buffer->Graphics, bmpJugador);
 			//objControlador->DibujaEnemigos(buffer->Graphics , Enemigo , bala );
 			objControlador->DibujaCompuerta(buffer->Graphics, Compuerta);
 			objControlador->ColisionEnemigoJugador();
+			objControlador->DibujaEnemigos(buffer->Graphics,Enemigos,bmpfuego);
 			//objControlador->InteraccionJyEsc();
 			objControlador->PierdeJuego();
 			objControlador->GanaJuego();
@@ -123,10 +125,15 @@ namespace ConsoleApplication3 {
 		{
 
 		case Keys::Left: {objControlador->DireccionJugador(Direcciones::izquierda); }break;
+		case Keys::A: {objControlador->DireccionJugador(Direcciones::izquierda); }break;
 		case Keys::Right: {objControlador->DireccionJugador(Direcciones::derecha); }break;
+		case Keys::D: {objControlador->DireccionJugador(Direcciones::derecha); }break;
 		case Keys::Up: {objControlador->DireccionJugador(Direcciones::arriba); }break;
+		case Keys::W: {objControlador->DireccionJugador(Direcciones::arriba); }break;
 		case Keys::Down: {objControlador->DireccionJugador(Direcciones::abajo); }break;
-
+		case Keys::S: {objControlador->DireccionJugador(Direcciones::abajo); }break;
+		case Keys::T: {bmpJugador = gcnew Bitmap("Imagenes\\sprites gokussj.png"); }break; //TRANSFORMARSE SSJ1
+		case Keys::Y: {bmpJugador = gcnew Bitmap("Imagenes\\Picachu.png"); }break; // GOKU ESTADO NORMAL
 		}
 	}
 
