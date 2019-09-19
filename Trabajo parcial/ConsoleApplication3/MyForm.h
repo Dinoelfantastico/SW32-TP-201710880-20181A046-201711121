@@ -24,12 +24,12 @@ namespace ConsoleApplication3 {
 		Bitmap^ bmpBloque = gcnew Bitmap("Imagenes\\bloque.png");
 		Bitmap^ bmpBase = gcnew Bitmap("Imagenes\\base_1.png");
 		Bitmap^ bmpfuego = gcnew Bitmap("Imagenes\\bolafuego.png");
-		Bitmap^ Enemigos = gcnew Bitmap("Imagenes\\Banette.png");
+		Bitmap^ Enemigos = gcnew Bitmap("Imagenes\\enemigosfuego1.png");
 	private: System::Windows::Forms::Timer^  timer1;
 			 Bitmap^ bmpJugador = gcnew Bitmap("Imagenes\\Picachu.png");
 			 //Bitmap ^ Enemigo = gcnew Bitmap("Imagenes\\canon.png");
 			// Bitmap ^ bala = gcnew Bitmap("Imagenes\\fuego.png");
-			 Bitmap ^ Compuerta = gcnew Bitmap("Imagenes\\portal.jpg");
+			 Bitmap ^ Compuerta = gcnew Bitmap("Imagenes\\nave.png");
 
 	public:
 		MyForm(void)
