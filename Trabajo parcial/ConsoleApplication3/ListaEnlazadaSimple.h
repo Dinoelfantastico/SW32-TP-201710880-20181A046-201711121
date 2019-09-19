@@ -8,6 +8,7 @@ class ListaEnlazadaSimple {
 	struct nodo {
 		T * elem;
 		nodo * sig;
+
 		nodo(T *elem = nullptr, nodo* sig = nullptr):elem(elem),sig(sig){}
 	};
 
