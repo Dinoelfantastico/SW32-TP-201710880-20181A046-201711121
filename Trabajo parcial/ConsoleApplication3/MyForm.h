@@ -125,10 +125,15 @@ namespace ConsoleApplication3 {
 		{
 
 		case Keys::Left: {objControlador->DireccionJugador(Direcciones::izquierda); }break;
+		case Keys::A: {objControlador->DireccionJugador(Direcciones::izquierda); }break;
 		case Keys::Right: {objControlador->DireccionJugador(Direcciones::derecha); }break;
+		case Keys::D: {objControlador->DireccionJugador(Direcciones::derecha); }break;
 		case Keys::Up: {objControlador->DireccionJugador(Direcciones::arriba); }break;
+		case Keys::W: {objControlador->DireccionJugador(Direcciones::arriba); }break;
 		case Keys::Down: {objControlador->DireccionJugador(Direcciones::abajo); }break;
-
+		case Keys::S: {objControlador->DireccionJugador(Direcciones::abajo); }break;
+		case Keys::T: {bmpJugador = gcnew Bitmap("Imagenes\\sprites gokussj.png"); }break; //TRANSFORMARSE SSJ1
+		case Keys::Y: {bmpJugador = gcnew Bitmap("Imagenes\\Picachu.png"); }break; // GOKU ESTADO NORMAL
 		}
 	}
 
