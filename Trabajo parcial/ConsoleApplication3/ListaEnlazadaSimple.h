@@ -7,7 +7,7 @@ class ListaEnlazadaSimple {
 	struct nodo {
 		T * elem;
 		nodo * sig;
-		//Falta lambda
+
 		nodo(T *elem = nullptr, nodo* sig = nullptr):elem(elem),sig(sig){}
 	};
 

@@ -140,6 +140,7 @@
     <ClInclude Include="Controladora.h" />
     <ClInclude Include="Ecenario.h" />
     <ClInclude Include="CJugador.h" />
+    <ClInclude Include="Ki.h" />
     <ClInclude Include="ListaEnlazadaCircularDoble.h" />
     <ClInclude Include="ListaEnlazadaSimple.h" />
     <ClInclude Include="MyForm.h">
