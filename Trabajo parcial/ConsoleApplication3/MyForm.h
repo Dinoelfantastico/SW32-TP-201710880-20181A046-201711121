@@ -1,6 +1,5 @@
 #pragma once
 #include "Controladora.h"
-
 namespace ConsoleApplication3 {
 
 	using namespace System;
@@ -22,15 +21,20 @@ namespace ConsoleApplication3 {
 		Controladora* objControlador = new Controladora();
 
 		Bitmap^ bmpBloque = gcnew Bitmap("Imagenes\\bloque.png");
-		Bitmap^ bmpBase = gcnew Bitmap("Imagenes\\base_1.png");
-		Bitmap^ bmpfuego = gcnew Bitmap("Imagenes\\bolafuego.png");
-		Bitmap^ Enemigos = gcnew Bitmap("Imagenes\\enemigosfuego1.png");
+		/*MAPAS*/
+		Bitmap^ bmpNamekusei = gcnew Bitmap("Imagenes\\Namekusei.jpg");
+		Bitmap^ TierraDesolada = gcnew Bitmap("Imagenes\\TierraDesolada.jpg");
+		Bitmap^ Tierra = gcnew Bitmap("Imagenes\\Tierra.jpg");
+		/*PERSONAJES*/
+		Bitmap^ Freezer = gcnew Bitmap("Imagenes\\Freezer.png");
+		Bitmap^ bmpGoku = gcnew Bitmap("Imagenes\\Goku.png");
+		/*ATAQUES*/
+		Bitmap^ bmpAtaqueFreezer = gcnew Bitmap("Imagenes\\AtaqueFreezer.png");
+		/*DESTINO*/
+		Bitmap ^ Nave = gcnew Bitmap("Imagenes\\nave.png");
+		Bitmap ^ TimeMachine = gcnew Bitmap("Imagenes\\TimeMachine.png");
+		Bitmap ^ NaveSaiyajin = gcnew Bitmap("Imagenes\\NaveSaiyajin.png");
 	private: System::Windows::Forms::Timer^  timer1;
-			 Bitmap^ bmpJugador = gcnew Bitmap("Imagenes\\Picachu.png");
-			 //Bitmap ^ Enemigo = gcnew Bitmap("Imagenes\\canon.png");
-			// Bitmap ^ bala = gcnew Bitmap("Imagenes\\fuego.png");
-			 Bitmap ^ Compuerta = gcnew Bitmap("Imagenes\\nave.png");
-
 	public:
 		MyForm(void)
 		{
@@ -39,8 +43,6 @@ namespace ConsoleApplication3 {
 			this->space = BufferedGraphicsManager::Current;
 			this->buffer = space->Allocate(this->CreateGraphics(), this->ClientRectangle);
 
-
-			bmpJugador->MakeTransparent(Color::White);
 		}
 
 	protected:
@@ -85,10 +87,10 @@ namespace ConsoleApplication3 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(902, 596);
+			this->ClientSize = System::Drawing::Size(944, 494);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyDown);
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyUp);
@@ -99,12 +101,23 @@ namespace ConsoleApplication3 {
 
 		void Iniciar_Juego() {
 			this->Text = L"VIDAS : " + objControlador->Vidas().ToString();
-			objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpfuego, bmpBase);
-			objControlador->DibujarJugador(buffer->Graphics, bmpJugador);
+			switch(objControlador->get_nivel()) {
+			case 1: objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, bmpNamekusei);
+					objControlador->DibujaCompuerta(buffer->Graphics, Nave);
+					break;
+			case 2: objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, TierraDesolada); 
+					objControlador->DibujaCompuerta(buffer->Graphics, TimeMachine);
+					break;
+			case 3: objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, Tierra); 
+					objControlador->DibujaCompuerta(buffer->Graphics, NaveSaiyajin);
+					break;
+			}
+			
+			objControlador->DibujarJugador(buffer->Graphics, bmpGoku);
 			//objControlador->DibujaEnemigos(buffer->Graphics , Enemigo , bala );
-			objControlador->DibujaCompuerta(buffer->Graphics, Compuerta);
+		
 			objControlador->ColisionEnemigoJugador();
-			objControlador->DibujaEnemigos(buffer->Graphics,Enemigos,bmpfuego);
+			objControlador->DibujaEnemigos(buffer->Graphics,Freezer,bmpAtaqueFreezer);
 			//objControlador->InteraccionJyEsc();
 			objControlador->PierdeJuego();
 			objControlador->GanaJuego();
@@ -132,8 +145,8 @@ namespace ConsoleApplication3 {
 		case Keys::W: {objControlador->DireccionJugador(Direcciones::arriba); }break;
 		case Keys::Down: {objControlador->DireccionJugador(Direcciones::abajo); }break;
 		case Keys::S: {objControlador->DireccionJugador(Direcciones::abajo); }break;
-		case Keys::T: {bmpJugador = gcnew Bitmap("Imagenes\\sprites gokussj.png"); }break; //TRANSFORMARSE SSJ1
-		case Keys::Y: {bmpJugador = gcnew Bitmap("Imagenes\\Picachu.png"); }break; // GOKU ESTADO NORMAL
+		case Keys::T: {bmpGoku = gcnew Bitmap("Imagenes\\GokuSSJ.png"); }break; //TRANSFORMARSE SSJ1
+		case Keys::Y: {bmpGoku = gcnew Bitmap("Imagenes\\Goku.png"); }break; // GOKU ESTADO NORMAL
 		}
 	}
 

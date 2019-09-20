@@ -43,46 +43,17 @@ public:
 	}
 	void GeneraMapa1() {
 
-		GeneraContorno();
-		for (int i = 0; i < FILAS; i++) {
-
-			for (int j = 0; j < COLUMNAS; j++) {
-				
-				if((i==18 && j == 18) || (i == 17 && j == 18) || (i == 16 && j==18)
-				|| (i == 15 && j == 18) ||(i == 14 && j ==18) || (i == 13 && j == 18)
-				|| (i == 12 && j == 18) ||(i == 11 && j == 18) || (i == 10 && j == 18)
-				|| (i == 18 && j == 10) || (i == 17 && j == 10) || (i == 16 && j == 10)
-				|| (i == 15 && j == 10) || (i == 14 && j == 10) || (i == 13 && j == 10)
-				|| (i == 12 && j == 10) || (i == 11 && j == 10) || (i == 10 && j == 10)){
-					matriz[i][j] = 1;
-				}
-				
-			}
-
-		}
+		//GeneraContorno();
 
 	}
 	void GeneraMapa2() {
-		GeneraContorno();
-		for (int i = 0; i < FILAS; i++) {
-
-			for (int j = 0; j < COLUMNAS; j++) {
-
-				if ((i == 4 && j == 11) || (i == 5 && j == 10) || (i == 5 && j == 11) || (i == 6 && j == 10) || (i == 6 && j == 11) || (i == 11 && j == 5)
-					|| (i == 11 && j == 6) || (i == 11 && j == 20) || (i == 12 && j == 5) || (i == 12 && j == 6) || (i == 12 && j == 20) || (i == 13 && j == 5)
-					|| (i == 13 && j == 6) || (i == 13 && j == 20) || (i == 14 && j == 5) || (i == 14 && j == 6) || (i == 14 && j == 20) || (i == 15 && j == 5) || (i == 15 && j == 6)
-					|| (i == 15 && j == 20) || (i == 16 && j == 5) || (i == 16 && j == 6) || (i == 16 && j == 20) || (i == 17 && j == 5) || (i == 17 && j == 6) || (i == 17 && j == 20) || (i == 18 && j == 5) ||
-					(i == 18 && j == 6) || (i == 18 && j == 20)) {
-					matriz[i][j] = 1;
-				}
-
-			}
-
-		}
+	//	GeneraContorno();
+		
 	}
 	void GeneraMapa3() {
-		GeneraContorno();
-		for (int i = 0; i < FILAS; i++) {
+		
+		//GeneraContorno();
+		/*for (int i = 0; i < FILAS; i++) {
 
 			for (int j = 0; j < COLUMNAS; j++) {
 
@@ -96,14 +67,14 @@ public:
 
 			}
 
-		}
+		}*/
 
 	}
 
 	void GeneraMapa4() {
 
-		GeneraContorno();
-		for (int i = 0; i < FILAS; i++) {
+	//	GeneraContorno();
+		/*for (int i = 0; i < FILAS; i++) {
 
 			for (int j = 0; j < COLUMNAS; j++) {
 
@@ -118,7 +89,7 @@ public:
 			}
 
 		}
-
+		*/
 
 	}
 

@@ -18,7 +18,7 @@ class CJugador
 	Rectangle CAA;
 
 public:
-	CJugador() : x(120), y(510), dx(0),dy(0),ancho(64), alto(64), indiceX(0), indiceY(0) ,numVidas(3){}
+	CJugador() : x(120), y(430), dx(0),dy(0),ancho(64), alto(64), indiceX(0), indiceY(0) ,numVidas(3){}
 	~CJugador() {}
 
 	int GetX() { return x; }
@@ -91,7 +91,7 @@ public:
 		}break;
 		case Direcciones::derecha:
 		{
-
+		
 			indiceY = 2;
 
 			if (indiceX >= 0 && indiceX < 3)
