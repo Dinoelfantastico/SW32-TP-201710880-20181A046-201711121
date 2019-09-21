@@ -18,7 +18,6 @@ private:
 	CEnemigo *Enemigo;
 	CEnemigo *Enemigo2;
 	CEnemigo *Enemigo3;
-	ArregloKi *ki;
 public:
 
 	CNivel(int n,CJugador *jugador) { 
@@ -34,7 +33,7 @@ public:
 			Ecenario->GeneraMapa1();
 
 			Compuerta = new CCompuerta(830,400);
-			generarki();
+			
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo);
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo2);
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo3);
@@ -53,14 +52,12 @@ public:
 
 		}
 		if (n == 3) { 
-			generarki();
 			Ecenario->GeneraMapa3();
 
 			Compuerta = new CCompuerta(830, 400);
 			
 		}
 		if (n == 4) { 
-			generarki();
 			Ecenario->GeneraMapa3();
 			
 			Compuerta = new CCompuerta(830, 400);
@@ -71,20 +68,7 @@ public:
 	~CNivel() { }
 
 	int GetNivel() { return NumNivel; }
-	void generarki() {
-		
-		ki = new ArregloKi[4 + rand() % 7];
-		srand(time(NULL));
-		for (int i = 0; i < 5; i++) {
-
-			int a = 10 + rand() % 800;
-			int b = 10 + rand() % 400;
-
-			ki->agregar(a, b);
-		}
-		
-		
-	}
+	
 	void DibujaNivel(Graphics^ g, Bitmap^ bmpBloque, Bitmap^ bmpEspinas, Bitmap^bmpFondo) {
 		Ecenario->Dibujar(g, bmpBloque, bmpEspinas, bmpFondo);
 	}
@@ -137,31 +121,6 @@ public:
 		}
 
 
-	}
-
-	void ColisionKiJugador(CJugador * jugador) {
-	int x1, y1, a1, l1;
-	x1 = jugador->GetX();
-	y1 = jugador->GetY();
-
-	int lenght;
-	Ki *KI;
-	CJugador *GOKU;
-	Rectangle kii;
-	Rectangle gokuu;
-
-	for (int i = 0; i < ki->get_lenght(); i++) {
-		lenght = ki->get_lenght();
-		KI = ki->get_ep(i);
-		kii = Rectangle(KI->get_x(), KI->get_y(), KI->get_ancho(), KI->get_alto());
-		gokuu = Rectangle(x1, y1, 64, 64);
-
-		if (kii.IntersectsWith(gokuu)) {
-			ki->eliminar(i);
-		jugador->set_vida();
-		}
-
-	}
 	}
 
 	bool LLegoAlameta(CJugador * jugador) {
