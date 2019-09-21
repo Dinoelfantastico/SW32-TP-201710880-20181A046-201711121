@@ -3,7 +3,7 @@
 #include "CBala.h"
 
 using namespace System::Drawing;
-
+//classsss
 class CEnemigo {
 
 private:
