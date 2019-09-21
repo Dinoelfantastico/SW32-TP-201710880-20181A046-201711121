@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArregloKi.h" />
     <ClInclude Include="CBala.h" />
     <ClInclude Include="CEnemigo.h" />
     <ClInclude Include="CNivel.h" />

@@ -18,12 +18,17 @@ class CJugador
 	Rectangle CAA;
 
 public:
-	CJugador() : x(120), y(430), dx(0),dy(0),ancho(64), alto(64), indiceX(0), indiceY(0) ,numVidas(3){}
+	CJugador() {
+		this->x = (120), this->y = (430), this->dx = (0), this->dy = (0), this->ancho = (64),
+			this->alto = (64), this->indiceX = (0), this->indiceY = (0), this->numVidas = (3);
+	}
 	~CJugador() {}
 
-	int GetX() { return x; }
-	int GetY() { return y; }
-
+	int GetX() { return x; };
+	int GetY() { return y; };
+	void set_vida() {
+		numVidas++;
+	}
 	void SetPosx(int px) { x = px; }
 	void SetPosy(int py) { y = py; }
 	
@@ -62,9 +67,13 @@ public:
 		{
 		case Direcciones::ninguna:
 		{
-			indiceX = 0;
 			indiceY = 0;
-			
+			indiceX++;
+			if (indiceX == 4) {
+				indiceX = 0;
+			}
+		
+		
 		    this->dy = 0;
 			this->dx = 0;
 
@@ -84,9 +93,14 @@ public:
 				indiceX = 0;
 			}
 
-			
+			if (x + dx > 0) {
 				dx = -17;
-				dy = 0;		
+				dy = 0;
+			}
+			else {
+				dx = 0;
+				dy = 0;
+			}
 
 		}break;
 		case Direcciones::derecha:
@@ -104,9 +118,15 @@ public:
 				indiceX = 0;
 			}
 
-			
+			if (x + dx + ancho < g->VisibleClipBounds.Width) {
 				dx = 17;
 				dy = 0;
+			}
+			else {
+				dx = 0;
+				dy = 0;
+			}
+
 			
 
 		}break;
@@ -124,9 +144,14 @@ public:
 			{
 				indiceX = 0;
 			}
-			
-			dy = -17;
-			dx = 0;
+			if (y + dy > 0) {
+				dx = 0;
+				dy = -17;
+			}
+			else {
+				dy = 0;
+				dx = 0;
+			}
 
 		}break;
 
@@ -143,9 +168,14 @@ public:
 			{
 				indiceX = 0;
 			}
-
-			dy = 17;
-			dx = 0;
+			if (y + dy + alto < g->VisibleClipBounds.Height) {
+				dx = 0;
+				dy = 17;
+			}
+			else {
+				dx = 0;
+				dy = 0;
+			}
 		}break;
 
 		}
