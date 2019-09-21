@@ -1,5 +1,6 @@
 #pragma once
 #include "Controladora.h"
+#include "Ki.h"
 namespace ConsoleApplication3 {
 
 	using namespace System;
@@ -19,6 +20,7 @@ namespace ConsoleApplication3 {
 		BufferedGraphics^ buffer;
 
 		Controladora* objControlador = new Controladora();
+		ki*objeto = new ki(100, 150);
 
 		Bitmap^ bmpBloque = gcnew Bitmap("Imagenes\\bloque.png");
 		/*MAPAS*/
@@ -126,7 +128,9 @@ namespace ConsoleApplication3 {
 	 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 
 		Iniciar_Juego();
+		objeto->Dibujar(buffer);
 		buffer->Render();
+
 
 	}
 
