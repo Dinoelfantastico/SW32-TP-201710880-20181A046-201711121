@@ -38,8 +38,10 @@ public:
 	int Gety() { return y; }
 
 	void DibujaEnemigo(Graphics^ g, Bitmap^ enemigo) {
+
 		largo = enemigo->Height/1;
 		ancho = enemigo->Width / 6;
+
 		Rectangle molde = Rectangle(columna * ancho, fila * largo, ancho, largo);
 		g->DrawImage(enemigo, x, y,molde,GraphicsUnit::Pixel);
 		columna++;
