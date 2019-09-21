@@ -32,10 +32,10 @@ public:
 
 	void ki::Dibujar(BufferedGraphics^ buffer) {
 
-		Bitmap ^bmp = gcnew Bitmap(gcnew System::String("Imagenes\\bolafuego.png"));
+		//Bitmap ^bmp = gcnew Bitmap(gcnew System::String("Imagenes\\bolafuego.png"));
 		Rectangle porcion = Rectangle(1, 1, w, h);
 		Rectangle destino = Rectangle(x, y, w, h);
-		buffer->Graphics->DrawImage(bmp, destino, porcion, GraphicsUnit::Pixel);
+		//buffer->Graphics->DrawImage(bmp, destino, porcion, GraphicsUnit::Pixel);
 	}
 
 		void ki::set_x_y(int x, int y) {

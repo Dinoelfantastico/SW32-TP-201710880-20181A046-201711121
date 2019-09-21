@@ -55,13 +55,13 @@ public:
 	}
 	~Controladora() {}
 
-
-
 	void GanaJuego() {
 
-		if (auxNiv->LLegoAlameta(objJugador) == 1) { 
+		if (auxNiv->LLegoAlameta(objJugador) == 1) {
+
 			auxNiv = ColeccionNiveles->ObtSigElement(auxNiv->GetNivel());
 			auxNiv->ActualizaPosJugador(objJugador);
+		
 		}
 			
 	}
@@ -108,7 +108,6 @@ public:
 	
 	void DibujarJugador(Graphics^ g, Bitmap^ jugador)
 	{
-		
 		objJugador->Mover(g, jugador,auxNiv->MatMapa());
 	}
 
@@ -117,6 +116,7 @@ public:
 		auxNiv->ActualizaPosJugador(objJugador);
 	}
 	int get_nivel() {
+
 		return auxNiv->GetNivel();
 	}
 

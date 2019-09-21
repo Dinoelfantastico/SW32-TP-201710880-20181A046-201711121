@@ -13,9 +13,11 @@ class CEcenario
 	int numMapa;
 
 public:
+
 	CEcenario() {
 
 		numMapa = 0;
+
 		matriz = new int *[FILAS];
 
 		for (int i = 0; i < FILAS; i++) {
@@ -103,6 +105,7 @@ public:
 	{
 		
 		Rectangle areaDibujo(0, 0, g->VisibleClipBounds.Width, g->VisibleClipBounds.Height);
+
 		g->DrawImage(bmpFondo, areaDibujo);
 
 		int y = 0;

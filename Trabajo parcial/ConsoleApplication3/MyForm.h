@@ -20,6 +20,7 @@ namespace ConsoleApplication3 {
 		BufferedGraphics^ buffer;
 
 		Controladora* objControlador = new Controladora();
+
 		ki*objeto = new ki(100, 150);
 
 		Bitmap^ bmpBloque = gcnew Bitmap("Imagenes\\bloque.png");
@@ -27,6 +28,7 @@ namespace ConsoleApplication3 {
 		Bitmap^ bmpNamekusei = gcnew Bitmap("Imagenes\\Namekusei.jpg");
 		Bitmap^ TierraDesolada = gcnew Bitmap("Imagenes\\TierraDesolada.jpg");
 		Bitmap^ Tierra = gcnew Bitmap("Imagenes\\Tierra.jpg");
+		Bitmap^ vegita = gcnew Bitmap("Imagenes\\Planeta_vegita.jpg");
 		/*PERSONAJES*/
 		Bitmap^ Freezer = gcnew Bitmap("Imagenes\\Freezer.png");
 		Bitmap^ bmpGoku = gcnew Bitmap("Imagenes\\Goku.png");
@@ -102,8 +104,11 @@ namespace ConsoleApplication3 {
 #pragma endregion
 
 		void Iniciar_Juego() {
+
 			this->Text = L"VIDAS : " + objControlador->Vidas().ToString();
+
 			switch(objControlador->get_nivel()) {
+
 			case 1: objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, bmpNamekusei);
 					objControlador->DibujaCompuerta(buffer->Graphics, Nave);
 					break;
@@ -113,6 +118,9 @@ namespace ConsoleApplication3 {
 			case 3: objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, Tierra); 
 					objControlador->DibujaCompuerta(buffer->Graphics, NaveSaiyajin);
 					break;
+			case 4 :objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, vegita);
+				    objControlador->DibujaCompuerta(buffer->Graphics, Nave); 
+				  break;
 			}
 			
 			objControlador->DibujarJugador(buffer->Graphics, bmpGoku);
@@ -131,10 +139,7 @@ namespace ConsoleApplication3 {
 		objeto->Dibujar(buffer);
 		buffer->Render();
 
-
 	}
-
-
 
 	private: System::Void MyForm_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 
@@ -153,8 +158,6 @@ namespace ConsoleApplication3 {
 		case Keys::Y: {bmpGoku = gcnew Bitmap("Imagenes\\Goku.png"); }break; // GOKU ESTADO NORMAL
 		}
 	}
-
-
 
 	private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 		objControlador->DireccionJugador(Direcciones::ninguna);
