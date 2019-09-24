@@ -2,6 +2,7 @@
 
 using namespace System::Drawing;
 
+//Clase Bala
 class CBala {
 
 private:
