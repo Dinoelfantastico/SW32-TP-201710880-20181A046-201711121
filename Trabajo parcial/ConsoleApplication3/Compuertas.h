@@ -23,11 +23,13 @@ public:
 	~CCompuerta() {}
 
 	void DibujaCompuerta(Graphics^ g, Bitmap^ Compuerta) {
+
 		g->DrawImage(Compuerta, x, y, ancho, alto);
 
 	}
 
 	Rectangle GetCompuerta() {
+
 		return Rectangle(x, y, ancho, alto);
 	}
 

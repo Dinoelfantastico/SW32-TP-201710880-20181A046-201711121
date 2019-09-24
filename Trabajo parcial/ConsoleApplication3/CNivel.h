@@ -1,11 +1,9 @@
 #pragma once
 #include "ListaEnlazadaSimple.h"
+#include "CJugador.h"
 #include "Ecenario.h"
 #include "CEnemigo.h"
 #include "Compuertas.h"
-#include "ArregloKi.h"
-#include <cstdlib>
-#include <ctime>
 
 class CNivel {
 
@@ -14,17 +12,13 @@ private:
 	int NumNivel;
 	CEcenario * Ecenario;
 	CCompuerta * Compuerta;
-
 	ListaEnlazadaSimple<CEnemigo> *ColeccionEnemigos;
-	CEnemigo *Enemigo;
-	CEnemigo *Enemigo2;
-	CEnemigo *Enemigo3;
+
 public:
 
-	CNivel(int n,CJugador *jugador) { 
+	CNivel(int n) { 
 
 		this->ColeccionEnemigos = new ListaEnlazadaSimple<CEnemigo>();
-
 		Ecenario = new CEcenario();
 
 		NumNivel = n;
@@ -32,41 +26,40 @@ public:
 		if (n == 1) { 
 
 			Ecenario->GeneraMapa1();
+			CEnemigo*Enemigo = new CEnemigo(400, 510, 90, 60, 1);
+			CEnemigo*Enemigo2 = new CEnemigo(600, 30, 90, 60, 2);
+			CEnemigo*Enemigo3 = new CEnemigo(200, 30, 60, 60, 2);
+			Compuerta = new CCompuerta(780,480);
 
-			Compuerta = new CCompuerta(830,400);
-			
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo);
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo2);
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo3);
 		
 		}
-		
 		if (n == 2) {
-		
-			//generarki();
+
 			Ecenario->GeneraMapa2();
 
-
-			Compuerta = new CCompuerta(830, 400);
-
+			Compuerta = new CCompuerta(780, 480);
 			//CEnemigo * Enemy3 = new CEnemigo(, 520, 1);
 
 		}
 		if (n == 3) { 
 			Ecenario->GeneraMapa3();
 
-			Compuerta = new CCompuerta(830, 400);
+			Compuerta = new CCompuerta(780, 480);
 			
 		}
 		if (n == 4) { 
 			Ecenario->GeneraMapa3();
 			
-			Compuerta = new CCompuerta(830, 400);
+			Compuerta = new CCompuerta(780, 480);
 			
 		}
 
 	}
 	~CNivel() { }
+
 
 	int GetNivel() { return NumNivel; }
 	
@@ -83,18 +76,15 @@ public:
 	//Dibujar enemigos de determinado nivel
 
 	void DibujaEnemigosDeNivel(Graphics ^ g, Bitmap^ enemigo , Bitmap^ bala) {
-		
+
 		for (int i = 0; i < ColeccionEnemigos->tamaño(); i++)
 		{
-			
+
 			(ColeccionEnemigos->ObtenerElemento(i))->DibujaEnemigo(g,enemigo);
 			(ColeccionEnemigos->ObtenerElemento(i))->EnemigoDispara(g, bala);
-			
+
 		}
 
-	}
-	void DibujaKi(BufferedGraphics ^buffer) {
-		//ki->dibujar(buffer);
 	}
 
 	void DibujaCompuerta(Graphics ^ g, Bitmap^ compuerta) {
@@ -104,10 +94,10 @@ public:
 
 	void ActualizaPosJugador(CJugador * jugador) {
 
-		if (NumNivel == 1) { jugador->SetPosx(120); jugador->SetPosy(430); }
-		if (NumNivel == 2){ jugador->SetPosx(60); jugador->SetPosy(430); }
-		if (NumNivel == 3) { jugador->SetPosx(60); jugador->SetPosy(430); }
-		if (NumNivel == 4) { jugador->SetPosx(60); jugador->SetPosy(430); }
+		if (NumNivel == 1) { jugador->SetPosx(120); jugador->SetPosy(510); }
+		if(NumNivel == 2){ jugador->SetPosx(60); jugador->SetPosy(510); }
+		if (NumNivel == 3) { jugador->SetPosx(60); jugador->SetPosy(510); }
+		if (NumNivel == 4) { jugador->SetPosx(60); jugador->SetPosy(510); }
 	}
 
 	void ColisionEnemigoBala(CJugador * jugador) {
@@ -119,12 +109,18 @@ public:
 				ActualizaPosJugador(jugador);
 				jugador->PierdeVida();
 			}
+
+
 		}
 
 
 	}
 
 	bool LLegoAlameta(CJugador * jugador) {
-		return (Compuerta->GetCompuerta().IntersectsWith(jugador->GetJugador()));	
+
+		return (Compuerta->GetCompuerta().IntersectsWith(jugador->GetJugador()));
+
 	}
+
+
 };

@@ -3,7 +3,7 @@
 #include "CBala.h"
 
 using namespace System::Drawing;
-//classsss
+
 class CEnemigo {
 
 private:
@@ -14,7 +14,6 @@ private:
 
 	int ancho;
 	int largo;
-	int fila, columna;
 
 	//1(arriba) , 2(abajo) , 3(izquierda) , 4(derecha)
 	int dirDisparo;
@@ -25,7 +24,6 @@ public:
 	
 		x = px;
 		y = py;
-		fila = columna = 0;
 		ancho = anc ;
 		largo = alt;
 		dirDisparo = dirDisp;
@@ -39,15 +37,7 @@ public:
 
 	void DibujaEnemigo(Graphics^ g, Bitmap^ enemigo) {
 
-		largo = enemigo->Height/1;
-		ancho = enemigo->Width / 6;
-
-		Rectangle molde = Rectangle(columna * ancho, fila * largo, ancho, largo);
-		g->DrawImage(enemigo, x, y,molde,GraphicsUnit::Pixel);
-		columna++;
-		if (columna == 6) {
-			columna = 0;
-		}
+		g->DrawImage(enemigo, x, y, ancho, largo);
 
 	}
 	void EnemigoDispara(Graphics^ g, Bitmap^ bala) {
@@ -61,7 +51,7 @@ public:
 
 	Rectangle GetRectangleBala() {
 
-//		return Rectangle(BalaCanon->Getx(), BalaCanon->Gety(),50,50);
+		return Rectangle(BalaCanon->Getx(), BalaCanon->Gety(),50,50);
 	}
 	
 

@@ -1,28 +1,27 @@
 
+#ifndef __CONTROLADORA__
+#define __CONTROLADORA__
 #include "Ecenario.h"
 #include "CJugador.h"
 #include "CEnemigo.h"
-#include "ArregloKi.h"
 #include "CNivel.h"
 #include "ListaEnlazadaSimple.h"
 #include "ListaEnlazadaCircularDoble.h"
-#include <cstdlib>
-#include <ctime>
 
+//#include "CFuego.h"
 class Controladora
 {
-
 private:
 
 	//Listas a usar
-
+	
 	ListaDobEnlazadaCircular<CNivel> *ColeccionNiveles;
 
 	//OBJETOS
 
 	CJugador* objJugador;
 	CEnemigo * objEnemigo;
-	ArregloKi * ki;
+
 	//Auxilkiares
 	CNivel * auxNiv;
 
@@ -33,16 +32,16 @@ private:
 public:
 	Controladora()
 	{
-
+		
 		this->objJugador = new CJugador();
-		this->ki = new ArregloKi();
+		
 		this->ColeccionNiveles = new ListaDobEnlazadaCircular<CNivel>();
 
 		//LLENAMOS LA "LISTA DOBLE ENLAZADA" DE NIVELES
 
 		for (int i = 1; i <= 4; i++) {
 
-			CNivel * niv = new CNivel(i,objJugador);
+			CNivel * niv = new CNivel(i);
 
 			ColeccionNiveles->AgregarElementoFinal(niv);
 
@@ -60,17 +59,17 @@ public:
 
 	void GanaJuego() {
 
-		if (auxNiv->LLegoAlameta(objJugador) == 1) {
+		if (auxNiv->LLegoAlameta(objJugador) == 1) { 
 			auxNiv = ColeccionNiveles->ObtSigElement(auxNiv->GetNivel());
 			auxNiv->ActualizaPosJugador(objJugador);
 		}
-
+			
 	}
-
+	
 
 	void PierdeJuego() {
 
-		if (objJugador->GetVidas() == 0) {
+		if (objJugador->GetVidas() == 0) { 
 			auxNiv = ColeccionNiveles->ObtIniElement();
 			objJugador->PierdeJuego();
 		}
@@ -78,32 +77,24 @@ public:
 
 	int Vidas()
 	{
-		return objJugador->GetVidas();
+		 return objJugador->GetVidas();
 	}
 
 
 	void DibujarMapa(Graphics^ g, Bitmap^ bmpBloque, Bitmap^ bmpEspinas, Bitmap^ bmpFondo)
 	{
-		auxNiv->DibujaNivel(g, bmpBloque, bmpEspinas, bmpFondo);
+		auxNiv->DibujaNivel(g , bmpBloque, bmpEspinas ,bmpFondo);
 	}
 	void DibujaEnemigos(Graphics^ g, Bitmap^ Enemigo, Bitmap^ bala) {
 
 		auxNiv->DibujaEnemigosDeNivel(g, Enemigo, bala);
-	}
 
-	
-	void DibujarKi(BufferedGraphics ^buffer) {
-		auxNiv->DibujaKi(buffer);
 	}
 	void DibujaCompuerta(Graphics^ g, Bitmap^ c) {
-		
+
 		auxNiv->DibujaCompuerta(g,c);
 	}
 
-	void ColisionKiJugador() {
-
-		//auxNiv->ColisionKiJugador(objJugador);
-	}
 
 	void ColisionEnemigoJugador() {
 
@@ -124,9 +115,6 @@ public:
 	void PosInicial() {
 
 		auxNiv->ActualizaPosJugador(objJugador);
-	}
-	int get_nivel() {
-		return auxNiv->GetNivel();
 	}
 
 	/*void InteraccionJyEsc() {
@@ -165,3 +153,5 @@ public:
 	*/
 	
 };
+
+#endif // !__CONTROLADORA_

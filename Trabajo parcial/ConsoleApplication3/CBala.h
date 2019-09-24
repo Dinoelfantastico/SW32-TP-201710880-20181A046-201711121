@@ -16,8 +16,8 @@ public:
 
 	CBala(int px , int py){
 
-		x = px; y = py ; des = 21; alto = 30;
-		ancho = 30;
+		x = px; y = py ; des = 21; alto = 50;
+		ancho = 50;
 	}
 	~CBala(){}
 
