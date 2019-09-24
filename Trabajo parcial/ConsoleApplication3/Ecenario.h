@@ -43,7 +43,8 @@ public:
 	}
 	void GeneraMapa1() {
 
-		GeneraContorno();
+		//GeneraContorno();
+		/*
 		for (int i = 0; i < FILAS; i++) {
 
 			for (int j = 0; j < COLUMNAS; j++) {
@@ -60,10 +61,12 @@ public:
 			}
 
 		}
+		*/
 
 	}
 	void GeneraMapa2() {
-		GeneraContorno();
+		//GeneraContorno();
+		/*
 		for (int i = 0; i < FILAS; i++) {
 
 			for (int j = 0; j < COLUMNAS; j++) {
@@ -79,9 +82,11 @@ public:
 			}
 
 		}
+		*/
 	}
 	void GeneraMapa3() {
-		GeneraContorno();
+		//GeneraContorno();
+		/*
 		for (int i = 0; i < FILAS; i++) {
 
 			for (int j = 0; j < COLUMNAS; j++) {
@@ -98,11 +103,14 @@ public:
 
 		}
 
+		*/
+
 	}
 
 	void GeneraMapa4() {
 
-		GeneraContorno();
+		//GeneraContorno();
+   /*
 		for (int i = 0; i < FILAS; i++) {
 
 			for (int j = 0; j < COLUMNAS; j++) {
@@ -118,6 +126,8 @@ public:
 			}
 
 		}
+
+		*/
 
 
 	}

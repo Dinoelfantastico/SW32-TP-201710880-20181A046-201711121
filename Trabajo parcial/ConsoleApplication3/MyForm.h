@@ -22,13 +22,30 @@ namespace ConsoleApplication3 {
 		Controladora* objControlador = new Controladora();
 
 		Bitmap^ bmpBloque = gcnew Bitmap("Imagenes\\bloque.png");
+		//Mapas//
+		Bitmap^ bmpNamekusei = gcnew Bitmap("Imagenes\\Namekusei.jpg");
+		Bitmap^ TierraDesolada = gcnew Bitmap("Imagenes\\TierraDesolada.jpg");
+		Bitmap^ Tierra = gcnew Bitmap("Imagenes\\Tierra.jpg");
+		Bitmap^Planeta = gcnew Bitmap("Imagenes\\Planeta_vegita.jpg");
+
+		//personaajes//
+
+		Bitmap^ Freezer = gcnew Bitmap("Imagenes\\Freezer.png");
+		Bitmap^ bmpGoku = gcnew Bitmap("Imagenes\\Goku.png");
+
+		//Ataquez
+
+		Bitmap^ bmpAtaqueFreezer = gcnew Bitmap("Imagenes\\AtaqueFreezer.png");
+		//Destino//
+
+		Bitmap ^ Nave = gcnew Bitmap("Imagenes\\nave.png");
+		Bitmap ^ TimeMachine = gcnew Bitmap("Imagenes\\TimeMachine.png");
+		Bitmap ^ NaveSaiyajin = gcnew Bitmap("Imagenes\\NaveSaiyajin.png");
 		Bitmap^ bmpBase = gcnew Bitmap("Imagenes\\base_1.png");
 		Bitmap^ bmpEspinas = gcnew Bitmap("Imagenes\\espina.png");
 	private: System::Windows::Forms::Timer^  timer1;
-			 Bitmap^ bmpJugador = gcnew Bitmap("Imagenes\\Picachu.png");
-			 //Bitmap ^ Enemigo = gcnew Bitmap("Imagenes\\canon.png");
-			// Bitmap ^ bala = gcnew Bitmap("Imagenes\\fuego.png");
-			 Bitmap ^ Compuerta = gcnew Bitmap("Imagenes\\portal.jpg");
+
+			 int nivel = 1;
 
 	public:
 		MyForm(void)
@@ -39,7 +56,7 @@ namespace ConsoleApplication3 {
 			this->buffer = space->Allocate(this->CreateGraphics(), this->ClientRectangle);
 
 
-			bmpJugador->MakeTransparent(Color::White);
+			bmpGoku->MakeTransparent(Color::White);
 		}
 
 	protected:
@@ -97,15 +114,32 @@ namespace ConsoleApplication3 {
 #pragma endregion
 
 		void Iniciar_Juego() {
+
 			this->Text = L"VIDAS : " + objControlador->Vidas().ToString();
-			objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpEspinas, bmpBase);
-			objControlador->DibujarJugador(buffer->Graphics, bmpJugador);
-			//objControlador->DibujaEnemigos(buffer->Graphics , Enemigo , bala );
-			objControlador->DibujaCompuerta(buffer->Graphics, Compuerta);
-			objControlador->ColisionEnemigoJugador();
-			//objControlador->InteraccionJyEsc();
-			objControlador->PierdeJuego();
-			objControlador->GanaJuego();
+			switch (objControlador->get_nivel()) {
+
+			case 1: objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer,bmpNamekusei);
+				objControlador->DibujaCompuerta(buffer->Graphics, Nave); break;
+			case 2:
+				objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, TierraDesolada);
+				objControlador->DibujaCompuerta(buffer->Graphics, TimeMachine); break;
+			case 3:
+				objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, Tierra);
+				objControlador->DibujaCompuerta(buffer->Graphics, NaveSaiyajin); break;
+
+			case 4:
+				objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, Planeta);
+				objControlador->DibujaCompuerta(buffer->Graphics, NaveSaiyajin); break;
+			}
+
+				objControlador->DibujarJugador(buffer->Graphics, bmpGoku);
+				//objControlador->DibujaCompuerta(buffer->Graphics, Compuerta);
+				objControlador->ColisionEnemigoJugador();
+				objControlador->DibujaEnemigos(buffer->Graphics,Freezer, bmpAtaqueFreezer);
+				//objControlador->InteraccionJyEsc();
+				objControlador->PierdeJuego();
+				objControlador->GanaJuego();
+			
 		}
 
 	 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {

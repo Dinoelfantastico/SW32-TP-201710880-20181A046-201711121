@@ -117,6 +117,11 @@ public:
 		auxNiv->ActualizaPosJugador(objJugador);
 	}
 
+	int get_nivel() {
+		return auxNiv->GetNivel();
+	}
+
+
 	/*void InteraccionJyEsc() {
 
 
