@@ -26,9 +26,11 @@ public:
 		if (n == 1) { 
 
 			Ecenario->GeneraMapa1();
+
 			CEnemigo*Enemigo = new CEnemigo(400, 510, 90, 60, 1);
 			CEnemigo*Enemigo2 = new CEnemigo(600, 30, 90, 60, 2);
-			CEnemigo*Enemigo3 = new CEnemigo(200, 30, 60, 60, 2);
+			CEnemigo*Enemigo3 = new CEnemigo(200, 30, 90, 60, 2);
+
 			Compuerta = new CCompuerta(780,480);
 
 			ColeccionEnemigos->AgregarElementoFinal(Enemigo);
