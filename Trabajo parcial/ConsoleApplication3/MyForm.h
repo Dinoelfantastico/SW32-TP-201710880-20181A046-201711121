@@ -30,7 +30,7 @@ namespace ConsoleApplication3 {
 
 		//personaajes//
 
-		Bitmap^ Freezer = gcnew Bitmap("Imagenes\\Freezer.png");
+		Bitmap^ Majin_buu = gcnew Bitmap("Imagenes\\Mijinbuu.png");
 		Bitmap^ bmpGoku = gcnew Bitmap("Imagenes\\Goku.png");
 
 		//Ataquez
@@ -135,7 +135,7 @@ namespace ConsoleApplication3 {
 				objControlador->DibujarJugador(buffer->Graphics, bmpGoku);
 				//objControlador->DibujaCompuerta(buffer->Graphics, Compuerta);
 				objControlador->ColisionEnemigoJugador();
-				objControlador->DibujaEnemigos(buffer->Graphics,Freezer, bmpAtaqueFreezer);
+				objControlador->DibujaEnemigos(buffer->Graphics,Majin_buu, bmpAtaqueFreezer);
 				//objControlador->InteraccionJyEsc();
 				objControlador->PierdeJuego();
 				objControlador->GanaJuego();
