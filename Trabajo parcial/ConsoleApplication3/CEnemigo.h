@@ -61,7 +61,7 @@ public:
 
 	Rectangle GetRectangleBala() {
 
-		return Rectangle(BalaCanon->Getx(), BalaCanon->Gety(),50,50);
+//		return Rectangle(BalaCanon->Getx(), BalaCanon->Gety(),50,50);
 	}
 	
 

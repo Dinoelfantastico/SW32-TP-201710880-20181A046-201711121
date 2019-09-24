@@ -101,7 +101,8 @@ public:
 	}
 
 	void ColisionKiJugador() {
-		auxNiv->ColisionKiJugador(objJugador);
+
+		//auxNiv->ColisionKiJugador(objJugador);
 	}
 
 	void ColisionEnemigoJugador() {

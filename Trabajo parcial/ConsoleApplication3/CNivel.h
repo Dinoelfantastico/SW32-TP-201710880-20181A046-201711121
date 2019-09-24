@@ -6,6 +6,7 @@
 #include "ArregloKi.h"
 #include <cstdlib>
 #include <ctime>
+
 class CNivel {
 
 private:
@@ -42,7 +43,7 @@ public:
 		
 		if (n == 2) {
 		
-			generarki();
+			//generarki();
 			Ecenario->GeneraMapa2();
 
 
@@ -93,7 +94,7 @@ public:
 
 	}
 	void DibujaKi(BufferedGraphics ^buffer) {
-		ki->dibujar(buffer);
+		//ki->dibujar(buffer);
 	}
 
 	void DibujaCompuerta(Graphics ^ g, Bitmap^ compuerta) {
