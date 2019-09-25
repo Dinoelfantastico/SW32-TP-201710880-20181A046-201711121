@@ -1,9 +1,11 @@
 #pragma once
 
 template <typename T>
+
 class pila {
 	
 	struct Nodo {
+
 		T*elemento;
 		Nodo*next;
 
@@ -37,6 +39,7 @@ public:
 			--len;
 		}
 	}
+
 	T top() {
 		if (!is_empty()) {
 			return _top->elem;

@@ -12,6 +12,7 @@ private:
 	int NumNivel;
 	CEcenario * Ecenario;
 	CCompuerta * Compuerta;
+
 	ListaEnlazadaSimple<CEnemigo> *ColeccionEnemigos;
 
 public:
@@ -39,11 +40,12 @@ public:
 		
 		}
 		if (n == 2) {
-
+			
 			Ecenario->GeneraMapa2();
 
 			Compuerta = new CCompuerta(780, 480);
-			//CEnemigo * Enemy3 = new CEnemigo(, 520, 1);
+			CEnemigo*Enemigo2 = new CEnemigo(600, 30, 90, 60, 4);
+			
 
 		}
 		if (n == 3) { 
@@ -52,7 +54,8 @@ public:
 			Compuerta = new CCompuerta(780, 480);
 			
 		}
-		if (n == 4) { 
+		if (n == 4) {
+
 			Ecenario->GeneraMapa3();
 			
 			Compuerta = new CCompuerta(780, 480);
@@ -61,7 +64,6 @@ public:
 
 	}
 	~CNivel() { }
-
 
 	int GetNivel() { return NumNivel; }
 	
@@ -97,9 +99,9 @@ public:
 	void ActualizaPosJugador(CJugador * jugador) {
 
 		if (NumNivel == 1) { jugador->SetPosx(120); jugador->SetPosy(510); }
-		if(NumNivel == 2){ jugador->SetPosx(60); jugador->SetPosy(510); }
-		if (NumNivel == 3) { jugador->SetPosx(60); jugador->SetPosy(510); }
-		if (NumNivel == 4) { jugador->SetPosx(60); jugador->SetPosy(510); }
+		if (NumNivel == 2) { jugador->SetPosx(60);  jugador->SetPosy(510); }
+		if (NumNivel == 3) { jugador->SetPosx(60);  jugador->SetPosy(510); }
+		if (NumNivel == 4) { jugador->SetPosx(60);  jugador->SetPosy(510); }
 	}
 
 	void ColisionEnemigoBala(CJugador * jugador) {
@@ -112,17 +114,9 @@ public:
 				jugador->PierdeVida();
 			}
 
-
 		}
-
-
 	}
 
-	bool LLegoAlameta(CJugador * jugador) {
-
-		return (Compuerta->GetCompuerta().IntersectsWith(jugador->GetJugador()));
-
+	bool LLegoAlameta(CJugador * jugador) {return (Compuerta->GetCompuerta().IntersectsWith(jugador->GetJugador()));
 	}
-
-
 };

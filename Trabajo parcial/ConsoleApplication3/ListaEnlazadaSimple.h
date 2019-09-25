@@ -1,23 +1,30 @@
 #pragma once
+#include <functional>
 
+using namespace std;
+
+typedef unsigned int uint;
 template <typename T >
 
 class ListaEnlazadaSimple {
 
 	struct nodo {
+
 		T * elem;
 		nodo * sig;
 
 		nodo(T *elem = nullptr, nodo* sig = nullptr):elem(elem),sig(sig){}
 	};
 
-private:
-	int tam;
-	nodo * ini;
+private :
 
+	uint tam;//tam(número de elementos en la lista
+	nodo * ini;
+	typename function<int(T, T)>Comparar;
+	
 public:
 
-	ListaEnlazadaSimple():tam(0),ini(nullptr){}
+	ListaEnlazadaSimple() : ini(nullptr), tam(0) {}
 	~ListaEnlazadaSimple(){
 
 		while (ini != nullptr) {

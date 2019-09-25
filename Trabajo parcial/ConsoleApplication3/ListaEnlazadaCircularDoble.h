@@ -8,6 +8,7 @@ class ListaDobEnlazadaCircular {
 
 	struct nodo {
 		T * elem;
+
 		nodo * sig;
 		nodo * ant;
 
@@ -73,6 +74,7 @@ public:
 	void AgregarElementoIni(T *elem ) {
 
 		nodo*aux2 = ini;
+
 		ini = new nodo(); 
 
 		nodo * aux = ini; tam++;
@@ -91,6 +93,7 @@ public:
 	void AgregarElementoPos(T *elem, int pos) {
 
 		if (pos == 0) AgregarElementoIni(elem);
+
 		if (pos > 0 && pos <= tam) {
 
 			nodo * aux = ini;
@@ -106,33 +109,18 @@ public:
 			tam++;
 
 		}
-
-
-
 	}
 
 	void AgregarElementoFinal(T * elem) {
 		AgregarElementoPos(elem, tam);
 	}
 
-
-
 	T * ObtSigElement(int n) {
-
-
 		return ((obtenerNodo(n))->elem);
-
-
 	}
 
-
-
-	T * ObtIniElement() {
-
-		
+	T * ObtIniElement() {	
 		return (ini->elem);
-		
 	}
-
 
 };

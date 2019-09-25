@@ -55,8 +55,6 @@ public:
 	}
 	~Controladora() {}
 
-
-
 	void GanaJuego() {
 
 		if (auxNiv->LLegoAlameta(objJugador) == 1) { 
@@ -65,7 +63,6 @@ public:
 		}
 			
 	}
-	
 
 	void PierdeJuego() {
 
