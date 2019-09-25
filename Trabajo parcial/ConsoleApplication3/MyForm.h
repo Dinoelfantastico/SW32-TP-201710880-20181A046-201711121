@@ -30,7 +30,7 @@ namespace ConsoleApplication3 {
 
 		//personaajes//
 
-		Bitmap^ Majin_buu = gcnew Bitmap("Imagenes\\Mijinbuu.png");
+		Bitmap^ Majin_buu = gcnew Bitmap("Imagenes\\Freezer.png");
 		Bitmap^ bmpGoku = gcnew Bitmap("Imagenes\\Goku.png");
 
 		//Ataquez

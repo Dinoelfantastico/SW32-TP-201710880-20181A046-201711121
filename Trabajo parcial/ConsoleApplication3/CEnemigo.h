@@ -14,7 +14,8 @@ private:
 
 	int ancho;
 	int largo;
-
+	int w, h;
+	int columna, fila;
 	//1(arriba) , 2(abajo) , 3(izquierda) , 4(derecha)
 	int dirDisparo;
 
@@ -26,6 +27,7 @@ public:
 		y = py;
 		ancho = anc ;
 		largo = alt;
+		columna = fila = 0;
 		dirDisparo = dirDisp;
 		BalaCanon = new CBala(x,y);
 
@@ -36,9 +38,15 @@ public:
 	int Gety() { return y; }
 
 	void DibujaEnemigo(Graphics^ g, Bitmap^ enemigo) {
-
-		g->DrawImage(enemigo, x, y, ancho, largo);
-
+		w = enemigo->Width / 6;
+		h = enemigo->Height;
+		Rectangle molde = Rectangle(w*columna, h*fila, w, h);
+		//g->DrawImage(hoenemigo, x, y, anc, largo);
+		g->DrawImage(enemigo, x, y,molde, GraphicsUnit::Pixel);
+		columna++;
+		if (columna == 6) {
+			columna = 0;
+		}
 	}
 	void EnemigoDispara(Graphics^ g, Bitmap^ bala) {
 
