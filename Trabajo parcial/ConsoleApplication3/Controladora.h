@@ -1,3 +1,4 @@
+#pragma
 
 #ifndef __CONTROLADORA__
 #define __CONTROLADORA__
@@ -120,42 +121,6 @@ public:
 	int get_nivel() {
 		return auxNiv->GetNivel();
 	}
-
-
-	/*void InteraccionJyEsc() {
-
-
-		int x, y = 0;
-
-		for (int i = 0; i < FILAS; i++)
-		{
-			x = 0;
-
-			for (int j = 0; j < COLUMNAS; j++)
-			{
-				Rectangle bloque(x, y, 30, 30);
-
-				if ((auxNiv->MatMapa())[i][j] == 1)
-				{
-
-					if ((objJugador->GetRecJugadorCDI()).IntersectsWith(bloque)) { objJugador->SetDx(0); }
-					if ((objJugador->GetRecJugadorCAA()).IntersectsWith(bloque)) { objJugador->SetDy(0); }
-					//if ((objJugador->GetRectaguloLateralIzquierdo()).IntersectsWith(bloque)) { objJugador->SetIzq(0); }
-
-					//if ((objJugador->GetJugador()).IntersectsWith(bloque)) { objJugador->SetDer(0); }
-
-				}
-
-				x += 30;
-			}
-			y += 30;
-		}
-		
-
-		
-
-	}
-	*/
 	
 };
 

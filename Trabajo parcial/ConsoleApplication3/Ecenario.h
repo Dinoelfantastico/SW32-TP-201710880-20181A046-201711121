@@ -27,6 +27,7 @@ public:
 	}
 	~CEcenario() {}
 
+//Genera los ladrillos en los contornos
 	void GeneraContorno() {
 
 		for (int i = 0; i < FILAS; i++) {
@@ -39,11 +40,10 @@ public:
 			}
 
 		}
-
 	}
 	void GeneraMapa1() {
 
-		//GeneraContorno();
+		GeneraContorno();
 		/*
 		for (int i = 0; i < FILAS; i++) {
 
@@ -65,7 +65,7 @@ public:
 
 	}
 	void GeneraMapa2() {
-		//GeneraContorno();
+		GeneraContorno();
 		/*
 		for (int i = 0; i < FILAS; i++) {
 
@@ -85,7 +85,7 @@ public:
 		*/
 	}
 	void GeneraMapa3() {
-		//GeneraContorno();
+		GeneraContorno();
 		/*
 		for (int i = 0; i < FILAS; i++) {
 
@@ -109,7 +109,7 @@ public:
 
 	void GeneraMapa4() {
 
-		//GeneraContorno();
+		GeneraContorno();
    /*
 		for (int i = 0; i < FILAS; i++) {
 
@@ -132,15 +132,10 @@ public:
 
 	}
 
-	int ** GetMatriz() {
-
-		return matriz;
-
-	}
+	int ** GetMatriz() {return matriz;}
 
 	void Dibujar(Graphics^ g, Bitmap^ bmpBloque, Bitmap^ bmpEspinas, Bitmap^bmpFondo)
 	{
-		
 		Rectangle areaDibujo(0, 0, g->VisibleClipBounds.Width, g->VisibleClipBounds.Height);
 		g->DrawImage(bmpFondo, areaDibujo);
 
