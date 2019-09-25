@@ -24,6 +24,7 @@ public:
 			delete aux;
 		}
 	}
+
 	bool is_empty() {
 		return _top == nullptr;
 	}
