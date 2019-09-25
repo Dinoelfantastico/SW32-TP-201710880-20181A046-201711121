@@ -30,8 +30,10 @@ public:
 			srand(time(0));
 			Ecenario->GeneraMapa1();
 
-			for (int i = 0;i <=3;i++) {
-				CEnemigo *enemigo = new CEnemigo(rand()%200, rand() % 400, 60, 60, rand() % 4);
+			for (int i = 0;i <=4;i++) {
+
+				CEnemigo *enemigo = new CEnemigo(rand()%800, rand() % 400, 100, 60, rand() % 4);
+
 				ColeccionEnemigos->AgregarElementoFinal(enemigo);
 			}
 
@@ -44,7 +46,13 @@ public:
 			Ecenario->GeneraMapa2();
 
 			Compuerta = new CCompuerta(780, 480);
-			CEnemigo*Enemigo2 = new CEnemigo(600, 30, 90, 60, 4);
+
+			for (int i = 0;i <= 2;i++) {
+
+				CEnemigo *enemigo = new CEnemigo(rand() % 1000, rand() % 300, 90, 60, rand() % 4);
+				ColeccionEnemigos->AgregarElementoFinal(enemigo);
+			}
+			//CEnemigo*Enemigo2 = new CEnemigo(600, 30, 90, 60, 4);
 			
 
 		}
@@ -57,6 +65,13 @@ public:
 		if (n == 4) {
 
 			Ecenario->GeneraMapa3();
+
+			for (int i = 0;i <= 10;i++) {
+
+				CEnemigo *enemigo = new CEnemigo(rand() % 1000, rand() % 400, 100, 60, rand() % 4);
+
+				ColeccionEnemigos->AgregarElementoFinal(enemigo);
+			}
 			
 			Compuerta = new CCompuerta(780, 480);
 			
