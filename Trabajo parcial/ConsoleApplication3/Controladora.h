@@ -1,5 +1,4 @@
 #pragma
-
 #ifndef __CONTROLADORA__
 #define __CONTROLADORA__
 #include "Ecenario.h"
