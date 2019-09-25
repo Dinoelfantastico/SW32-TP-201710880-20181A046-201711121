@@ -4,6 +4,8 @@
 #include "Ecenario.h"
 #include "CEnemigo.h"
 #include "Compuertas.h"
+#include <stdlib.h>
+#include <time.h>
 
 class CNivel {
 
@@ -25,18 +27,16 @@ public:
 		NumNivel = n;
 
 		if (n == 1) { 
-
+			srand(time(0));
 			Ecenario->GeneraMapa1();
 
-			CEnemigo*Enemigo = new CEnemigo(400, 510, 90, 60, 1);
-			CEnemigo*Enemigo2 = new CEnemigo(600, 30, 90, 60, 2);
-			CEnemigo*Enemigo3 = new CEnemigo(200, 30, 90, 60, 2);
+			for (int i = 0;i <=3;i++) {
+				CEnemigo *enemigo = new CEnemigo(rand()%200, rand() % 400, 60, 60, rand() % 4);
+				ColeccionEnemigos->AgregarElementoFinal(enemigo);
+			}
 
 			Compuerta = new CCompuerta(780,480);
 
-			ColeccionEnemigos->AgregarElementoFinal(Enemigo);
-			ColeccionEnemigos->AgregarElementoFinal(Enemigo2);
-			ColeccionEnemigos->AgregarElementoFinal(Enemigo3);
 		
 		}
 		if (n == 2) {
