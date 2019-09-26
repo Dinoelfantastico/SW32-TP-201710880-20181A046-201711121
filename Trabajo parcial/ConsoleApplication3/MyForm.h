@@ -32,6 +32,9 @@ namespace ConsoleApplication3 {
 		Bitmap^ Majin_buu = gcnew Bitmap("Imagenes\\Freezer.png");
 		Bitmap^ bmpGoku = gcnew Bitmap("Imagenes\\Goku.png");
 
+		//Energia
+		Bitmap^energia = gcnew Bitmap("Imagenes\\Bolita.png");
+
 		//Ataquez
 
 		Bitmap^ bmpAtaqueFreezer = gcnew Bitmap("Imagenes\\AtaqueFreezer.png");
@@ -120,10 +123,10 @@ namespace ConsoleApplication3 {
 
 			case 1: objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer,bmpNamekusei);
 				    objControlador->DibujaCompuerta(buffer->Graphics, Nave);
-					objControlador->Dibujar_energia_nivel(buffer->Graphics, Nave);
+					objControlador->Dibujar_energia_nivel(buffer->Graphics, energia);
 				
 			 
-				
+	
 				break;
 			case 2:
 				objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, TierraDesolada);

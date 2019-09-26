@@ -42,9 +42,9 @@ public:
 				ColeccionEnemigos->AgregarElementoFinal(enemigo);
 			}
 
-			for (int i = 0; i <= 5; i++) {
+			for (int i = 1; i <= 4; i++) {
 
-            	ki*energia_ki = new ki(rand() % 800, rand() % 900);
+            	ki*energia_ki = new ki(rand() % 600, rand() % 400);
 				coleccion_energia->push(energia_ki);
 			}
 		

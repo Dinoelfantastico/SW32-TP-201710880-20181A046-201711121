@@ -39,6 +39,7 @@ public:
 
 	//Inserta un elemento en la cima de la pila
 	void push(T*elem) {
+
 		_top = new Nodo(elem, _top);
 		++len;
 	}
