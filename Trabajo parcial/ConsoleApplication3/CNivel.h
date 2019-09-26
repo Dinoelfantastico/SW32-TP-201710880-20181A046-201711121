@@ -33,13 +33,10 @@ public:
 			for (int i = 0;i <=4;i++) {
 
 				CEnemigo *enemigo = new CEnemigo(rand()%800, rand() % 400, 100, 60, rand() % 4);
-
 				ColeccionEnemigos->AgregarElementoFinal(enemigo);
 			}
 
 			Compuerta = new CCompuerta(780,480);
-
-		
 		}
 		if (n == 2) {
 			
