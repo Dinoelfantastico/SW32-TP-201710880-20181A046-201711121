@@ -24,13 +24,13 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>ConsoleApplication3</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -44,7 +44,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ArregloKi.h" />
     <ClInclude Include="CBala.h" />
     <ClInclude Include="CEnemigo.h" />
     <ClInclude Include="CNivel.h" />
@@ -140,14 +141,16 @@
     <ClInclude Include="Controladora.h" />
     <ClInclude Include="Ecenario.h" />
     <ClInclude Include="CJugador.h" />
-    <ClInclude Include="Energia.h" />
+    <ClInclude Include="Ki.h" />
     <ClInclude Include="ListaEnlazadaCircularDoble.h" />
     <ClInclude Include="ListaEnlazadaSimple.h" />
+    <ClInclude Include="MenuPrincipal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
     </ClInclude>
-    <ClInclude Include="Pila.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -157,6 +160,7 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="ConsoleApplication3.cpp" />
+    <ClCompile Include="MenuPrincipal.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -176,6 +180,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
       <SubType>Designer</SubType>
