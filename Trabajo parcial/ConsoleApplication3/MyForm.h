@@ -1,5 +1,6 @@
 #pragma once
 #include "Controladora.h"
+#include "Energia.h"
 
 namespace ConsoleApplication3 {
 
@@ -20,6 +21,7 @@ namespace ConsoleApplication3 {
 		BufferedGraphics^ buffer;
 
 		Controladora* objControlador = new Controladora();
+		ki*ener = new ki(30,40);
 
 		Bitmap^ bmpBloque = gcnew Bitmap("Imagenes\\bloque.png");
 		//Mapas//
@@ -131,10 +133,8 @@ namespace ConsoleApplication3 {
 			}
 
 				objControlador->DibujarJugador(buffer->Graphics, bmpGoku);
-				//objControlador->DibujaCompuerta(buffer->Graphics, Compuerta);
 				objControlador->ColisionEnemigoJugador();
 				objControlador->DibujaEnemigos(buffer->Graphics,Majin_buu, bmpAtaqueFreezer);
-				//objControlador->InteraccionJyEsc();
 				objControlador->PierdeJuego();
 				objControlador->GanaJuego();
 			
