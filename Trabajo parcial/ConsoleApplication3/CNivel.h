@@ -4,6 +4,8 @@
 #include "Ecenario.h"
 #include "CEnemigo.h"
 #include "Compuertas.h"
+#include "Energia.h"
+#include "Pila.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -14,14 +16,16 @@ private:
 	int NumNivel;
 	CEcenario * Ecenario;
 	CCompuerta * Compuerta;
-
 	ListaEnlazadaSimple<CEnemigo> *ColeccionEnemigos;
+	pila<ki>*coleccion_energia;
 
 public:
 
 	CNivel(int n) { 
 
 		this->ColeccionEnemigos = new ListaEnlazadaSimple<CEnemigo>();
+		this->coleccion_energia = new pila<ki>();
+
 		Ecenario = new CEcenario();
 
 		NumNivel = n;
@@ -36,6 +40,11 @@ public:
 				ColeccionEnemigos->AgregarElementoFinal(enemigo);
 			}
 
+			for (int i = 0; i <= 5; i++) {
+            	ki*energia_ki = new ki(rand() % 100, rand() % 100);
+				coleccion_energia->push(energia_ki);
+			}
+		
 			Compuerta = new CCompuerta(780,480);
 		}
 		if (n == 2) {

@@ -18,9 +18,9 @@ class pila {
 
 public:
 	//Constructor
-	Stack() : _top(nullptr), len(0) {}
+	pila() : _top(nullptr), len(0) {}
 	//Destructor
-	~Stack() {
+	~pila() {
 		while (_top != nullptr) {
 			Node* aux = _top;
 			_top = _top->next;
@@ -33,9 +33,13 @@ public:
 		return _top == nullptr;
 	}
 
+	int tamanio() {
+		return len;
+	}
+
 	//Inserta un elemento en la cima de la pila
-	void push(T elem) {
-		_top = new Node(elem, _top);
+	void push(T*elem) {
+		_top = new Nodo(elem, _top);
 		++len;
 	}
 

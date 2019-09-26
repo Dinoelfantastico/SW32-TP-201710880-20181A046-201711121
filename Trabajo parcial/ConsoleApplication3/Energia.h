@@ -9,6 +9,7 @@ class ki {
 
 private:
 	int x, y, w, h;
+
 public:
 
 	ki(int x, int y) {

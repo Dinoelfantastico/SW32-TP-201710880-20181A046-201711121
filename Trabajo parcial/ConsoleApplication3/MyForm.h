@@ -1,7 +1,6 @@
 #pragma once
 #include "Controladora.h"
 #include "Energia.h"
-
 namespace ConsoleApplication3 {
 
 	using namespace System;
