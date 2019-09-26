@@ -2,6 +2,7 @@
 
 //Sirve para utilizar cualquier tipo de elemento
 template <typename T>
+//Clase pila
 class pila {
 	
 	struct Nodo {
@@ -27,16 +28,18 @@ public:
 		}
 	}
 
-	//Sirve para verificar si esta vacia la pila
+	//Sirve para verificar si pila esta vacia
 	bool is_empty() {
 		return _top == nullptr;
 	}
 
+	//Inserta un elemento en la cima de la pila
 	void push(T elem) {
 		_top = new Node(elem, _top);
 		++len;
 	}
 
+	//Recupera y elimina el último elemento en la cima de la pila
 	void pop() {
 		if (!is_empty()) {
 			Node* aux = _top;
@@ -46,8 +49,8 @@ public:
 		}
 	}
 
-
-	T top() {
+	//Hace referencia a la cima de la pila
+	T*top() {
 		if (!is_empty()) {
 			return _top->elem;
 		}

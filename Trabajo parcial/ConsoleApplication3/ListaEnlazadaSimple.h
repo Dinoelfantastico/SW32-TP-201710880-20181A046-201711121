@@ -10,7 +10,7 @@ typedef unsigned int uint;
 template <typename T >
 //Clase ListaEnlazadaSimple
 class ListaEnlazadaSimple {
-
+   
 	struct nodo {
 
 		T * elem;
