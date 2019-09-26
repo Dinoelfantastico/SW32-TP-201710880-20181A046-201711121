@@ -1,14 +1,15 @@
 #pragma once
 #include "ListaEnlazadaSimple.h"
 
+//Sirve para utilizar cualquier tipo de dato
 template <typename T >
 
-
+//Clase ListaDoblementeCircular
 class ListaDobEnlazadaCircular {
 
 	struct nodo {
-		T * elem;
 
+		T * elem;
 		nodo * sig;
 		nodo * ant;
 
@@ -22,7 +23,9 @@ private:
 
 public:
 
+	//Constructor
 	ListaDobEnlazadaCircular():tam(0),ini(nullptr){}
+	//Destructor
 	~ListaDobEnlazadaCircular(){
 
 		while (ini != nullptr) {
@@ -35,6 +38,7 @@ public:
 	
 	}
 
+	//Verifica si la lista esta vacia
 	bool EsVacia() {
 
 		return(tam == 0 );
@@ -44,6 +48,7 @@ public:
 		return tam;
 	}
 
+	//Obtiene un elemento de la lista en posicion
 	T * ObtenerElemento(int pos) {
 
 		nodo * aux = ini;
@@ -59,6 +64,7 @@ public:
 
 	}
 
+	//Obtiene un nodo de la lista en posicion
 	nodo * obtenerNodo(int pos) 
 	{
 		nodo * aux = ini;
@@ -70,7 +76,7 @@ public:
 		return aux;
 
 	}
-
+	//Agregar un elemento en el inicio de la lista
 	void AgregarElementoIni(T *elem ) {
 
 		nodo*aux2 = ini;
@@ -90,6 +96,7 @@ public:
 
 	}
 
+	//Agrega un elemento en posicion  de la lista
 	void AgregarElementoPos(T *elem, int pos) {
 
 		if (pos == 0) AgregarElementoIni(elem);
@@ -111,6 +118,7 @@ public:
 		}
 	}
 
+	//Agrega un elemento en el final de la lista
 	void AgregarElementoFinal(T * elem) {
 		AgregarElementoPos(elem, tam);
 	}

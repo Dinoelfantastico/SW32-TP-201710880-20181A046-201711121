@@ -44,9 +44,7 @@ namespace ConsoleApplication3 {
 		Bitmap^ bmpBase = gcnew Bitmap("Imagenes\\base_1.png");
 		Bitmap^ bmpEspinas = gcnew Bitmap("Imagenes\\espina.png");
 	private: System::Windows::Forms::Timer^  timer1;
-
 			 int nivel = 1;
-
 	public:
 		MyForm(void)
 		{

@@ -18,9 +18,12 @@ class CJugador
 	Rectangle CAA;
 
 public:
+	//Constructor
 	CJugador() : x(120), y(510), dx(0),dy(0),ancho(64), alto(64), indiceX(0), indiceY(0) ,numVidas(3){}
+	//Destructor
 	~CJugador() {}
 
+	//Metdos
 	int GetX() { return x; }
 	int GetY() { return y; }
 

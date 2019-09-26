@@ -1,7 +1,7 @@
 #pragma once
 
+//Sirve para utilizar cualquier tipo de elemento
 template <typename T>
-
 class pila {
 	
 	struct Nodo {
@@ -16,7 +16,9 @@ class pila {
 	int len;
 
 public:
+	//Constructor
 	Stack() : _top(nullptr), len(0) {}
+	//Destructor
 	~Stack() {
 		while (_top != nullptr) {
 			Node* aux = _top;
@@ -25,13 +27,16 @@ public:
 		}
 	}
 
+	//Sirve para verificar si esta vacia la pila
 	bool is_empty() {
 		return _top == nullptr;
 	}
+
 	void push(T elem) {
 		_top = new Node(elem, _top);
 		++len;
 	}
+
 	void pop() {
 		if (!is_empty()) {
 			Node* aux = _top;
@@ -40,6 +45,7 @@ public:
 			--len;
 		}
 	}
+
 
 	T top() {
 		if (!is_empty()) {

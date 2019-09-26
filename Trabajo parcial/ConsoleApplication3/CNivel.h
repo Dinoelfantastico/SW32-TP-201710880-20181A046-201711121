@@ -47,9 +47,9 @@ public:
 
 			Compuerta = new CCompuerta(780, 480);
 
-			for (int i = 0;i <= 2;i++) {
+			for (int i = 0;i <= 5;i++) {
 
-				CEnemigo *enemigo = new CEnemigo(rand() % 1000, rand() % 300, 90, 60, rand() % 4);
+				CEnemigo *enemigo = new CEnemigo(rand() % 1000, rand() % 200, 90, 60, rand() % 4);
 				ColeccionEnemigos->AgregarElementoFinal(enemigo);
 			}
 			//CEnemigo*Enemigo2 = new CEnemigo(600, 30, 90, 60, 4);
@@ -68,7 +68,7 @@ public:
 
 			for (int i = 0;i <= 10;i++) {
 
-				CEnemigo *enemigo = new CEnemigo(rand() % 1000, rand() % 400, 100, 60, rand() % 4);
+				CEnemigo *enemigo = new CEnemigo(rand() % 1000, rand() % 20, 90, 60, rand() % 4);
 
 				ColeccionEnemigos->AgregarElementoFinal(enemigo);
 			}
