@@ -1,6 +1,5 @@
 #pragma once
 #include "Controladora.h"
-#include "Energia.h"
 namespace ConsoleApplication3 {
 
 	using namespace System;
@@ -20,13 +19,12 @@ namespace ConsoleApplication3 {
 		BufferedGraphics^ buffer;
 
 		Controladora* objControlador = new Controladora();
-		ki*ener = new ki(30,40);
 
 		Bitmap^ bmpBloque = gcnew Bitmap("Imagenes\\bloque.png");
 		//Mapas//
-		Bitmap^ bmpNamekusei = gcnew Bitmap("Imagenes\\Namekusei.jpg");
-		Bitmap^ TierraDesolada = gcnew Bitmap("Imagenes\\TierraDesolada.jpg");
-		Bitmap^ Tierra = gcnew Bitmap("Imagenes\\Tierra.jpg");
+		Bitmap^bmpNamekusei = gcnew Bitmap("Imagenes\\Namekusei.jpg");
+		Bitmap^TierraDesolada = gcnew Bitmap("Imagenes\\TierraDesolada.jpg");
+		Bitmap^Tierra = gcnew Bitmap("Imagenes\\Tierra.jpg");
 		Bitmap^Planeta = gcnew Bitmap("Imagenes\\Planeta_vegita.jpg");
 
 		//personaajes//
@@ -44,7 +42,9 @@ namespace ConsoleApplication3 {
 		Bitmap ^ NaveSaiyajin = gcnew Bitmap("Imagenes\\NaveSaiyajin.png");
 		Bitmap^ bmpBase = gcnew Bitmap("Imagenes\\base_1.png");
 		Bitmap^ bmpEspinas = gcnew Bitmap("Imagenes\\espina.png");
+
 	private: System::Windows::Forms::Timer^  timer1;
+
 			 int nivel = 1;
 	public:
 		MyForm(void)
@@ -119,13 +119,21 @@ namespace ConsoleApplication3 {
 			switch (objControlador->get_nivel()) {
 
 			case 1: objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer,bmpNamekusei);
-				objControlador->DibujaCompuerta(buffer->Graphics, Nave); break;
+				    objControlador->DibujaCompuerta(buffer->Graphics, Nave);
+					objControlador->Dibujar_energia_nivel(buffer->Graphics, Nave);
+				
+			 
+				
+				break;
 			case 2:
 				objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, TierraDesolada);
-				objControlador->DibujaCompuerta(buffer->Graphics, TimeMachine); break;
+				objControlador->DibujaCompuerta(buffer->Graphics, TimeMachine); 	
+				break;
+
 			case 3:
 				objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, Tierra);
 				objControlador->DibujaCompuerta(buffer->Graphics, NaveSaiyajin); break;
+
 
 			case 4:
 				objControlador->DibujarMapa(buffer->Graphics, bmpBloque, bmpAtaqueFreezer, Planeta);
@@ -133,6 +141,7 @@ namespace ConsoleApplication3 {
 			}
 
 				objControlador->DibujarJugador(buffer->Graphics, bmpGoku);
+				
 				objControlador->ColisionEnemigoJugador();
 				objControlador->DibujaEnemigos(buffer->Graphics,Majin_buu, bmpAtaqueFreezer);
 				objControlador->PierdeJuego();

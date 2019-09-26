@@ -7,6 +7,7 @@
 #include "CNivel.h"
 #include "ListaEnlazadaSimple.h"
 #include "ListaEnlazadaCircularDoble.h"
+#include "Energia.h"
 
 //#include "CFuego.h"
 class Controladora
@@ -87,6 +88,12 @@ public:
 		auxNiv->DibujaEnemigosDeNivel(g, Enemigo, bala);
 
 	}
+
+	void Dibujar_energia_nivel(Graphics^ g, Bitmap^ energia) {
+
+		auxNiv->Dibujar_energia_nivel(g, energia);
+	}
+
 	void DibujaCompuerta(Graphics^ g, Bitmap^ c) {
 
 		auxNiv->DibujaCompuerta(g,c);
@@ -105,7 +112,6 @@ public:
 	
 	void DibujarJugador(Graphics^ g, Bitmap^ jugador)
 	{
-		
 		objJugador->Mover(g, jugador,auxNiv->MatMapa());
 	}
 

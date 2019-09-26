@@ -4,10 +4,10 @@
 #include "Ecenario.h"
 #include "CEnemigo.h"
 #include "Compuertas.h"
-#include "Energia.h"
 #include "Pila.h"
 #include <stdlib.h>
 #include <time.h>
+#include "Energia.h"
 
 class CNivel {
 
@@ -24,13 +24,15 @@ public:
 	CNivel(int n) { 
 
 		this->ColeccionEnemigos = new ListaEnlazadaSimple<CEnemigo>();
+
 		this->coleccion_energia = new pila<ki>();
 
 		Ecenario = new CEcenario();
 
 		NumNivel = n;
 
-		if (n == 1) { 
+		if (n == 1) {
+
 			srand(time(0));
 			Ecenario->GeneraMapa1();
 
@@ -41,7 +43,8 @@ public:
 			}
 
 			for (int i = 0; i <= 5; i++) {
-            	ki*energia_ki = new ki(rand() % 100, rand() % 100);
+
+            	ki*energia_ki = new ki(rand() % 800, rand() % 900);
 				coleccion_energia->push(energia_ki);
 			}
 		
@@ -104,7 +107,6 @@ public:
 
 		for (int i = 0; i < ColeccionEnemigos->tamaño(); i++)
 		{
-
 			(ColeccionEnemigos->ObtenerElemento(i))->DibujaEnemigo(g,enemigo);
 			(ColeccionEnemigos->ObtenerElemento(i))->EnemigoDispara(g, bala);
 
@@ -123,6 +125,14 @@ public:
 		if (NumNivel == 2) { jugador->SetPosx(60);  jugador->SetPosy(510); }
 		if (NumNivel == 3) { jugador->SetPosx(60);  jugador->SetPosy(510); }
 		if (NumNivel == 4) { jugador->SetPosx(60);  jugador->SetPosy(510); }
+	}
+
+	void Dibujar_energia_nivel(Graphics ^ g, Bitmap^ energia) {
+
+		for (int i = 0; i < coleccion_energia->tamanio(); ++i) {
+			(coleccion_energia->ObtenerElemento(i))->Dibuja(g, energia);
+		}
+
 	}
 
 	void ColisionEnemigoBala(CJugador * jugador) {

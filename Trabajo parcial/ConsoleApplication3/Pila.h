@@ -60,6 +60,19 @@ public:
 		}
 		return 0;
 	}
+
+	T * ObtenerElemento(int pos) {
+
+		Nodo * aux = _top;
+		for (int i = 0; i < pos; i++) {
+
+			aux = aux->next;
+		}
+
+		return aux->elemento;
+
+	}
+
 };
 
 

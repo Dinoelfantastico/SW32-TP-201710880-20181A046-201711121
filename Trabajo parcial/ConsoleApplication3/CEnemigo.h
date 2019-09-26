@@ -63,6 +63,7 @@ public:
 		/*Si la direccion del disparo es 1 entonces mediante el objeto ataque que se creó 
 		en la clase se llama al metodo movimiento hacia arriba de la bala , lo  dibuja
 		y si mueve hacia arriba*/
+
 		if (dirDisparo == 1) ataque->MovimientoBalaArriba(g, bala);
 		if (dirDisparo == 2) ataque->MovimientoBalaAbajo(g, bala);
 		if (dirDisparo == 3) ataque->MovimientoBalaIzquierda(g, bala);
