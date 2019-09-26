@@ -113,6 +113,7 @@ namespace ConsoleApplication3 {
 		}
 #pragma endregion
 
+		//Iniciar Juego
 		void Iniciar_Juego() {
 
 			this->Text = L"VIDAS : " + objControlador->Vidas().ToString();
